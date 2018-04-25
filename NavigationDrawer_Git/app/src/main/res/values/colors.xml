@@ -39,5 +39,7 @@
     <color name="layout_background">#F8ECE0</color>
     <color name="view_separator_color">#E3E3E3</color>
 
+    <color name="album_title">#4c4c4c</color>
+
 
 </resources>

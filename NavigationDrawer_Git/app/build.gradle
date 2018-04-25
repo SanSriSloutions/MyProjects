@@ -48,6 +48,9 @@ dependencies {
     // google vision library
     implementation 'com.google.android.gms:play-services-vision:11.0.2'
 
+    //card view
     implementation 'com.android.support:cardview-v7:27.1.1'
+    // RecyclerView
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
 
 }
