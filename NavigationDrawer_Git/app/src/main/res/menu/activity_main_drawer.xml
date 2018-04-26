@@ -13,21 +13,9 @@
         <item
             android:id="@+id/barcode_scanner"
             android:title="BarcodeScanner"></item>
-
-        <!--
-
-                <item
-                    android:id="@+id/nav_photos"
-
-                    android:title="@string/nav_photos" />
-                <item
-                    android:id="@+id/nav_notifications"
-                    android:title="@string/nav_notifications" />
-
-                <item
-                    android:id="@+id/nav_settings"
-                    android:title="@string/nav_settings" />
-        -->
+        <item
+            android:id="@+id/products"
+            android:title="Products"></item>
     </group>
     <!--
         <item android:title="Other">

@@ -19,7 +19,6 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
-
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="match_parent"

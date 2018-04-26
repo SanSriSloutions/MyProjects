@@ -17,41 +17,30 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
 import com.example.srinivasracharla.navigationviewexample.Fragments.BarCodeFragment;
 import com.example.srinivasracharla.navigationviewexample.Fragments.HomeFragment;
 import com.example.srinivasracharla.navigationviewexample.Fragments.MovieFragment;
+import com.example.srinivasracharla.navigationviewexample.Fragments.ProductFragment;
 import com.example.srinivasracharla.navigationviewexample.R;
 
 public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private DrawerLayout drawer;
-    private View navHeader;
-    private ImageView imgNavHeaderBg, imgProfile;
-    // private TextView txtName, txtWebsite;
     private Toolbar toolbar;
     private FloatingActionButton fab;
     ActionBar actionBar;
-    // urls to load navigation header background image
-    // and profile image
-    private static final String urlNavHeaderBg = "https://api.androidhive.info/images/nav-menu-header-bg.jpg";
-    private static final String urlProfileImg = "https://lh3.googleusercontent.com/eCtE_G34M9ygdkmOpYvCag1vBARCmZwnVS6rS5t4JLzJ6QgQSBquM0nuTsCpLhYbKljoyS-txg";
-
     // index to identify current nav menu item
     public static int navItemIndex = 0;
 
     // tags used to attach the fragments
     private static final String TAG_HOME = "home";
-    private static final String TAG_PHOTOS = "photos";
     private static final String TAG_MOVIES = "movies";
-    private static final String TAG_NOTIFICATIONS = "notifications";
-    private static final String TAG_SETTINGS = "settings";
-    private static final String TAG_BAR_CODE="barcoder";
+    private static final String TAG_BAR_CODE = "barcoder";
+    private static final String TAG_PRODUCT = "Product";
     public static String CURRENT_TAG = TAG_HOME;
-
     // toolbar titles respected to selected nav menu item
     private String[] activityTitles;
 
@@ -76,13 +65,6 @@ public class MainActivity extends AppCompatActivity {
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
-        // Navigation view header
-        navHeader = navigationView.getHeaderView(0);
-//        txtName = (TextView) navHeader.findViewById(R.id.name);
-        //      txtWebsite = (TextView) navHeader.findViewById(R.id.website);
-        //    imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
-        //  imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
-
         // load toolbar titles from string resources
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
 
@@ -93,8 +75,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        // load nav menu header data
-        loadNavHeader();
+
 
         // initializing navigation menu
         setUpNavigationView();
@@ -104,34 +85,6 @@ public class MainActivity extends AppCompatActivity {
             CURRENT_TAG = TAG_HOME;
             loadHomeFragment();
         }
-    }
-
-    /***
-     * Load navigation menu header information
-     * like background image, profile image
-     * name, website, notifications action view (dot)
-     */
-    private void loadNavHeader() {
-        // name, website
-        //txtName.setText("Ravi Tamada");
-        //txtWebsite.setText("www.androidhive.info");
-
-       /* // loading header background image
-        Glide.with(this).load(urlNavHeaderBg)
-                .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(imgNavHeaderBg);
-
-        // Loading profile image
-        Glide.with(this).load(urlProfileImg)
-                .crossFade()
-                .thumbnail(0.5f)
-                .bitmapTransform(new CircleTransform(this))
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(imgProfile);
-*/
-        // showing dot next to notifications label
-        // navigationView.getMenu().getItem(3).setActionView(R.layout.menu_dot);
     }
 
     /***
@@ -199,8 +152,11 @@ public class MainActivity extends AppCompatActivity {
                 MovieFragment moviesFragment = new MovieFragment();
                 return moviesFragment;
             case 2:
-                BarCodeFragment barCodeFragment=new BarCodeFragment();
+                BarCodeFragment barCodeFragment = new BarCodeFragment();
                 return barCodeFragment;
+            case 3:
+                ProductFragment productFragment = new ProductFragment();
+                return productFragment;
 
             default:
                 return new HomeFragment();
@@ -235,33 +191,13 @@ public class MainActivity extends AppCompatActivity {
                         CURRENT_TAG = TAG_MOVIES;
                         break;
                     case R.id.barcode_scanner:
-                        navItemIndex=2;
-                        CURRENT_TAG=TAG_BAR_CODE;
+                        navItemIndex = 2;
+                        CURRENT_TAG = TAG_BAR_CODE;
                         break;
-
-                   /* case R.id.nav_photos:
-                        navItemIndex = 1;
-                        CURRENT_TAG = TAG_PHOTOS;
-                        break;
-
-                    case R.id.nav_notifications:
+                    case R.id.products:
                         navItemIndex = 3;
-                        CURRENT_TAG = TAG_NOTIFICATIONS;
+                        CURRENT_TAG = TAG_PRODUCT;
                         break;
-                    case R.id.nav_settings:
-                        navItemIndex = 4;
-                        CURRENT_TAG = TAG_SETTINGS;
-                        break;
-                    case R.id.nav_about_us:
-                        // launch new intent instead of loading fragment
-                     //   startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
-                        drawer.closeDrawers();
-                        return true;
-                    case R.id.nav_privacy_policy:
-                        // launch new intent instead of loading fragment
-                       // startActivity(new Intent(MainActivity.this, PrivacyPolicyActivity.class));
-                        drawer.closeDrawers();
-                        return true;*/
                     default:
                         navItemIndex = 0;
                 }
