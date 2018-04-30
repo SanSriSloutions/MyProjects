@@ -1,6 +1,5 @@
 package com.example.srinivasracharla.navigationviewexample.Actvities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -23,10 +22,12 @@ import android.widget.Toast;
 import com.example.srinivasracharla.navigationviewexample.Fragments.BarCodeFragment;
 import com.example.srinivasracharla.navigationviewexample.Fragments.HomeFragment;
 import com.example.srinivasracharla.navigationviewexample.Fragments.MovieFragment;
-import com.example.srinivasracharla.navigationviewexample.Fragments.ProductFragment;
+import com.example.srinivasracharla.navigationviewexample.Fragments.HandSetFragment;
+import com.example.srinivasracharla.navigationviewexample.Fragments.ProductListFragment;
 import com.example.srinivasracharla.navigationviewexample.R;
 
 public class MainActivity extends AppCompatActivity {
+
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private Toolbar toolbar;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG_MOVIES = "movies";
     private static final String TAG_BAR_CODE = "barcoder";
     private static final String TAG_PRODUCT = "Product";
+    private static final String TAG_BRANDS = "Brands";
     public static String CURRENT_TAG = TAG_HOME;
     // toolbar titles respected to selected nav menu item
     private String[] activityTitles;
@@ -53,11 +55,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+
+        initializeActionBar();
+
 
         mHandler = new Handler();
 
@@ -85,6 +85,14 @@ public class MainActivity extends AppCompatActivity {
             CURRENT_TAG = TAG_HOME;
             loadHomeFragment();
         }
+    }
+
+    private void initializeActionBar() {
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
     }
 
     /***
@@ -143,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment getHomeFragment() {
         switch (navItemIndex) {
             case 0:
-                // home
+              //  toolbar.setVisibility(View.GONE);
                 HomeFragment homeFragment = new HomeFragment();
                 return homeFragment;
 
@@ -155,9 +163,13 @@ public class MainActivity extends AppCompatActivity {
                 BarCodeFragment barCodeFragment = new BarCodeFragment();
                 return barCodeFragment;
             case 3:
-                ProductFragment productFragment = new ProductFragment();
-                return productFragment;
+               // toolbar.setVisibility(View.VISIBLE);
+                HandSetFragment handSetFragment = new HandSetFragment();
+                return handSetFragment;
+            case 4:
 
+                ProductListFragment productListFragment=new ProductListFragment();
+                return productListFragment;
             default:
                 return new HomeFragment();
         }
@@ -194,10 +206,17 @@ public class MainActivity extends AppCompatActivity {
                         navItemIndex = 2;
                         CURRENT_TAG = TAG_BAR_CODE;
                         break;
-                    case R.id.products:
+
+                    case R.id.brands:
                         navItemIndex = 3;
+                        CURRENT_TAG = TAG_BRANDS;
+                        break;
+
+                    case R.id.products:
+                        navItemIndex = 4;
                         CURRENT_TAG = TAG_PRODUCT;
                         break;
+
                     default:
                         navItemIndex = 0;
                 }

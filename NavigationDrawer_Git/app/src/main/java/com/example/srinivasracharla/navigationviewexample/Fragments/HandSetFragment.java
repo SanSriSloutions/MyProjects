@@ -2,18 +2,23 @@ package com.example.srinivasracharla.navigationviewexample.Fragments;
 
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.srinivasracharla.navigationviewexample.Adapters.HandsetAdapter;
@@ -27,7 +32,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProductFragment extends Fragment {
+public class HandSetFragment extends Fragment {
 
     RecyclerView recyclerView;
     HandsetAdapter handsetAdapter;
@@ -35,7 +40,7 @@ public class ProductFragment extends Fragment {
     Context mContext;
     EditText searchEditText;
 
-    public ProductFragment() {
+    public HandSetFragment() {
         // Required empty public constructor
     }
 
@@ -49,7 +54,7 @@ public class ProductFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_product, container, false);
+        View view = inflater.inflate(R.layout.fragment_handset, container, false);
 
         return view;
     }
@@ -62,9 +67,10 @@ public class ProductFragment extends Fragment {
     }
 
     private void prepareHandSetData() {
-        HandSets handSet = new HandSets("Four Mobiles", 75, 1000, R.color.button_backgroundcolor);
+        GradientDrawable gradientDrawable=new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP,)
+        HandSets handSet = new HandSets("Four Mobiles", 75, 1000, Color.parseColor("#FFA500"));
         handSetsList.add(handSet);
-        handSet = new HandSets("Samsung", 75, 1000, R.color.label_color_blue);
+        handSet = new HandSets("Samsung", 75, 1000, Color.GREEN);
         handSetsList.add(handSet);
         handSet = new HandSets("Oppo", 75, 1000, R.color.subject_button_background);
         handSetsList.add(handSet);
@@ -112,6 +118,16 @@ public class ProductFragment extends Fragment {
                 Toast.makeText(mContext.getApplicationContext(), handSet.getNoOfModels() + " is selected!", Toast.LENGTH_SHORT).show();
             }
         }));
+        searchEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    findBrands();
+                    return true;
+                }
+                return false;
+            }
+        });
 
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -126,10 +142,29 @@ public class ProductFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                //after the change calling the method and passing the search input
+                /*if (editable.toString().isEmpty()) {
+                    handsetAdapter.filterList(handSetsList);
+                }*/
                 filter(editable.toString().toLowerCase());
+
             }
         });
+    }
+
+
+    private void findBrands() {
+        String req_brand = searchEditText.getText().toString().toLowerCase();
+        List<HandSets> filterHandsets = new ArrayList<>();
+        for (int i = 0; i < handSetsList.size(); i++) {
+            String name = handSetsList.get(i).getName().toLowerCase();
+            if (name.contains(req_brand)) filterHandsets.add(handSetsList.get(i));
+        }
+        //calling a method of the adapter class and passing the filtered list
+        if (filterHandsets.size() != 0) {
+            handsetAdapter.filterList(filterHandsets);
+        } else {
+            Toast.makeText(mContext.getApplicationContext(), "need to call Api", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void filter(String text) {

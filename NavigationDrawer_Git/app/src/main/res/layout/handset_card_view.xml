@@ -6,7 +6,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+       >
 
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/card_view"
@@ -15,6 +16,7 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/handset_card_margin"
             android:elevation="3dp"
+            card_view:cardBackgroundColor="@color/button_backgroundcolor"
             card_view:cardCornerRadius="@dimen/handset_card_radius"
             card_view:cardUseCompatPadding="true">
 
@@ -22,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="90dp"
+
                 android:layout_marginTop="5dp">
 
                 <TextView

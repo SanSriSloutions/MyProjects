@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        card_view:contentPadding="10dp"
+        android:elevation="3dp"
+
+        card_view:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/layout_productData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_productName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SAMSUNG GALAXY NOTE "
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=","
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txt_productType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="64GB"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=","
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txt_product_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BLACK"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_product_prize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_productData"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_product_actual_prize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="AED 1,599" />
+
+
+                <TextView
+                    android:id="@+id/txt_product_offer_prize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+
+                    android:text="AED 1,399" />
+
+
+                <TextView
+                    android:id="@+id/txt_product_vat_prize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="(1459 - VAT Incl)" />
+
+                <TextView
+                    android:id="@+id/product_app_offers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:background="@drawable/app_offers_bg_style"
+
+                    android:text="app offers" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_product_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_product_prize"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#a4c639"
+                    android:textStyle="bold"
+                    android:text="Exclusive prize only for you" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_product_slab_prize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_product_message"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="slab Prize" />
+
+                <TextView
+                    android:id="@+id/txt_slabprize1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="1-5:1,399"
+                    android:background="@drawable/black_border"/>
+
+                <TextView
+                    android:id="@+id/txt_slabprize2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="5-10:1,299"
+                    android:background="@drawable/black_border"/>
+
+                <TextView
+                    android:id="@+id/txt_slabprize3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="10-15:1259"
+                    android:background="@drawable/black_border"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout_product_slab_prize"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:id="@+id/layout_bundle_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/LightBlue"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CREATE BUNDLE" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/layout_bundle_view">
+
+                    <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/black_border"
+                        card_view:backGroundColor="@color/white"
+                        card_view:textColor="@color/LightBlue">
+
+                    </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

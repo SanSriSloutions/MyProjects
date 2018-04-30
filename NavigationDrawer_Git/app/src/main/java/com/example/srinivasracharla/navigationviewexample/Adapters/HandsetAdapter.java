@@ -61,6 +61,7 @@ public class HandsetAdapter extends RecyclerView.Adapter<HandsetAdapter.HandsetV
         holder.handsetTitle.setText(handSet.getName());
         holder.noOfModels.setText(String.valueOf(handSet.getNoOfModels()));
         holder.noOfQty.setText(String.valueOf(handSet.getNoOf_Qnty()));
+
         holder.cardView.setCardBackgroundColor(handSet.getColorCode());
         Log.d("srinivas","onBindViewHolder() is called");
 

@@ -14,6 +14,11 @@
             android:id="@+id/barcode_scanner"
             android:title="BarcodeScanner"></item>
         <item
+            android:id="@+id/brands"
+            android:title="@string/brands">
+
+        </item>
+        <item
             android:id="@+id/products"
             android:title="Products"></item>
     </group>
