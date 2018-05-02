@@ -30,19 +30,15 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     public class ProductViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, type, color, actualPrize, offerPrize, vat_prize, slabPrize1, slabPrize2, slabPrize3;
+        TextView name, actualPrize, offerPrize, vat_prize, slabPrize1, slabPrize2, slabPrize3;
 
         public ProductViewHolder(View view) {
             super(view);
             name = view.findViewById(R.id.txt_productName);
-            type = view.findViewById(R.id.txt_productType);
-            color = view.findViewById(R.id.txt_product_color);
             actualPrize = view.findViewById(R.id.txt_product_actual_prize);
             offerPrize = view.findViewById(R.id.txt_product_offer_prize);
             vat_prize = view.findViewById(R.id.txt_product_vat_prize);
-            slabPrize1 = view.findViewById(R.id.txt_productType);
-            slabPrize2 = view.findViewById(R.id.txt_productType);
-            slabPrize3 = view.findViewById(R.id.txt_productType);
+            slabPrize1 = view.findViewById(R.id.txt_slab_prize_value);
         }
     }
 
@@ -60,16 +56,14 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
 
         ProductData productData = productList.get(position);
-        holder.name.setText(productData.getName());
-        holder.type.setText(productData.getType());
-        holder.color.setText(productData.getColorName());
+        holder.name.setText(productData.getName() + productData.getType() + productData.getColorName());
         holder.actualPrize.setText(productData.getActualPrize());
-        holder.actualPrize.setPaintFlags(holder.actualPrize.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
+        holder.actualPrize.setPaintFlags(holder.actualPrize.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         holder.offerPrize.setText(productData.getOfferPrize());
         holder.vat_prize.setText(productData.getVatPrize());
         holder.slabPrize1.setText(String.valueOf(productData.getSlabPrize1()));
-        holder.slabPrize2.setText(String.valueOf(productData.getSlabPrize2()));
-        holder.slabPrize3.setText(String.valueOf(productData.getSlabPrize3()));
+        /*holder.slabPrize2.setText(String.valueOf(productData.getSlabPrize2()));
+        holder.slabPrize3.setText(String.valueOf(productData.getSlabPrize3()));*/
 
     }
 

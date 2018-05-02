@@ -66,30 +66,24 @@ public class HandSetFragment extends Fragment {
         prepareHandSetData();
     }
 
+
+    private GradientDrawable prePareGradientColor(int startColor, int endColor) {
+        GradientDrawable gradientDrawable = new GradientDrawable(
+                GradientDrawable.Orientation.LEFT_RIGHT,
+                new int[]{startColor, endColor});
+
+        return gradientDrawable;
+    }
+
     private void prepareHandSetData() {
-        GradientDrawable gradientDrawable=new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP,)
-        HandSets handSet = new HandSets("Four Mobiles", 75, 1000, Color.parseColor("#FFA500"));
-        handSetsList.add(handSet);
-        handSet = new HandSets("Samsung", 75, 1000, Color.GREEN);
-        handSetsList.add(handSet);
-        handSet = new HandSets("Oppo", 75, 1000, R.color.subject_button_background);
-        handSetsList.add(handSet);
-        handSet = new HandSets("Apple", 75, 1000, R.color.button_backgroundcolor);
-        handSetsList.add(handSet);
-        handSet = new HandSets("Lenovo", 75, 1000, R.color.subject_button_background);
-        handSetsList.add(handSet);
 
-        handSet = new HandSets("Huawei", 75, 1000, R.color.label_color_blue);
+        HandSets handSet = new HandSets("Four Mobiles", 75, 1000, prePareGradientColor(0xffFFC382, 0xffF8809C));
         handSetsList.add(handSet);
-
-        handSet = new HandSets("Lenovo", 75, 1000, R.color.button_backgroundcolor);
+        handSet = new HandSets("Samsung", 75, 1000, prePareGradientColor(0xffCDD5EB, 0xff90A2FC));
         handSetsList.add(handSet);
-
-        handSet = new HandSets("Lenovo", 75, 1000, R.color.button_backgroundcolor);
+        handSet = new HandSets("Oppo", 75, 1000, prePareGradientColor(0xffCCECCE, 0xff8FE57C));
         handSetsList.add(handSet);
-        handSet = new HandSets("Lenovo", 75, 1000, R.color.button_backgroundcolor);
-        handSetsList.add(handSet);
-        handSet = new HandSets("Lenovo", 75, 1000, R.color.button_backgroundcolor);
+        handSet = new HandSets("Apple", 75, 1000, prePareGradientColor(0xffCAE1F2, 0xff81B3E7));
         handSetsList.add(handSet);
         handsetAdapter.notifyDataSetChanged();
     }

@@ -1,13 +1,15 @@
 package com.example.srinivasracharla.navigationviewexample.TestData;
 
+import android.graphics.drawable.GradientDrawable;
+
 public class HandSets {
     String name;
     int noOfModels;
     long noOf_Qnty;
-    int colorCode;
+    GradientDrawable colorCode;
 
 
-    public HandSets(String name, int noOfModels, int noOf_Qnty, int colorCode) {
+    public HandSets(String name, int noOfModels, int noOf_Qnty, GradientDrawable colorCode) {
         this.name = name;
         this.noOfModels = noOfModels;
         this.noOf_Qnty = noOf_Qnty;
@@ -15,11 +17,11 @@ public class HandSets {
 
     }
 
-    public int getColorCode() {
+    public GradientDrawable getColorCode() {
         return colorCode;
     }
 
-    public void setColorCode(int colorCode) {
+    public void setColorCode(GradientDrawable colorCode) {
         this.colorCode = colorCode;
     }
 

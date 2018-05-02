@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.srinivasracharla.navigationviewexample.R;
@@ -33,14 +34,18 @@ public class HandsetAdapter extends RecyclerView.Adapter<HandsetAdapter.HandsetV
 
         public TextView handsetTitle, noOfModels, noOfQty;
         public CardView cardView;
+        public RelativeLayout rel_layout;
 
         public HandsetViewHolder(View view) {
             super(view);
-            Log.d("srinivas","HandsetViewHolder is called");
+            Log.d("srinivas", "HandsetViewHolder is called");
             handsetTitle = view.findViewById(R.id.txt_handsetitle);
             noOfModels = view.findViewById(R.id.txt_no_of_models);
             noOfQty = view.findViewById(R.id.txt_no_of_qty);
-            cardView=view.findViewById(R.id.card_view);
+
+            cardView = view.findViewById(R.id.card_view);
+
+            rel_layout=view.findViewById(R.id.card_view_child);
         }
     }
 
@@ -50,7 +55,7 @@ public class HandsetAdapter extends RecyclerView.Adapter<HandsetAdapter.HandsetV
     public HandsetViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.handset_card_view, parent, false);
-        Log.d("srinivas","onCreateViewHolder() is called");
+        Log.d("srinivas", "onCreateViewHolder() is called");
 
         return new HandsetViewHolder(itemView);
     }
@@ -61,13 +66,14 @@ public class HandsetAdapter extends RecyclerView.Adapter<HandsetAdapter.HandsetV
         holder.handsetTitle.setText(handSet.getName());
         holder.noOfModels.setText(String.valueOf(handSet.getNoOfModels()));
         holder.noOfQty.setText(String.valueOf(handSet.getNoOf_Qnty()));
-
-        holder.cardView.setCardBackgroundColor(handSet.getColorCode());
-        Log.d("srinivas","onBindViewHolder() is called");
-
-
-
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            holder.rel_layout.setBackgroundDrawable(handSet.getColorCode());
+        } else {
+            holder.rel_layout.setBackground(handSet.getColorCode());
+        }
+        Log.d("srinivas", "onBindViewHolder() is called");
     }
+
     public void filterList(List<HandSets> handSets) {
         this.handSets = handSets;
         notifyDataSetChanged();
@@ -76,7 +82,7 @@ public class HandsetAdapter extends RecyclerView.Adapter<HandsetAdapter.HandsetV
 
     @Override
     public int getItemCount() {
-        Log.d("srinivas","getItemCount() is called");
+        Log.d("srinivas", "getItemCount() is called");
         return handSets.size();
     }
 }

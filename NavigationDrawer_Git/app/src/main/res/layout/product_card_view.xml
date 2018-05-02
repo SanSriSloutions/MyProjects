@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -7,194 +8,289 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        card_view:contentPadding="10dp"
-        android:elevation="3dp"
-
-        card_view:cardUseCompatPadding="true">
+        android:elevation="3dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:id="@+id/layout_productData"
-                android:layout_width="match_parent"
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/img_medal"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@drawable/medal" />
+
+            <RelativeLayout
+                android:id="@+id/layout_productData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="5dp"
+                android:layout_toLeftOf="@+id/img_medal">
 
                 <TextView
                     android:id="@+id/txt_productName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SAMSUNG GALAXY NOTE "
-                    android:textColor="@color/black"/>
+                    android:layout_marginTop="8dp"
+                    android:text="SAMSUNG GALAXY NOTE NOTE 8, 64GB, BlACK"
+                    android:textColor="#212121"
+                    android:textSize="14sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=","
-                    android:textColor="@color/black"/>
+            </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/txt_productType"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="64GB"
-                    android:textColor="@color/black"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=","
-                    android:textColor="@color/black"/>
-
-                <TextView
-                    android:id="@+id/txt_product_color"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="BLACK"
-                    android:textColor="@color/black"/>
-
-            </LinearLayout>
-
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/layout_product_prize"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/layout_productData"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:layout_centerHorizontal="true">
 
-                <TextView
-                    android:id="@+id/txt_product_actual_prize"
+                <RelativeLayout
+                    android:id="@+id/layout_product_prize_child"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:text="AED 1,599" />
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/layout_app_offer">
+
+                    <TextView
+                        android:id="@+id/txt_product_actual_prize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="5dp"
+                        android:text="AED 1,599"
+                        android:textColor="#757575"
+                        android:textSize="11sp" />
 
 
-                <TextView
-                    android:id="@+id/txt_product_offer_prize"
+                    <TextView
+                        android:id="@+id/txt_product_offer_prize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="5dp"
+                        android:layout_toRightOf="@+id/txt_product_actual_prize"
+                        android:text="AED 1,3345"
+                        android:textColor="#20A4A0"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/txt_product_vat_prize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="5dp"
+                        android:layout_toRightOf="@+id/txt_product_offer_prize"
+                        android:text="(1459 - VAT Incl)"
+                        android:textColor="#757575"
+                        android:textSize="11sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_app_offer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-
-                    android:text="AED 1,399" />
-
-
-                <TextView
-                    android:id="@+id/txt_product_vat_prize"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:text="(1459 - VAT Incl)" />
-
-                <TextView
-                    android:id="@+id/product_app_offers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="10dp"
                     android:background="@drawable/app_offers_bg_style"
+                    android:padding="5dp">
 
-                    android:text="app offers" />
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/img_app_offer_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        app:srcCompat="@drawable/appoffer" />
+
+                    <TextView
+                        android:id="@+id/product_app_offers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/img_app_offer_tag"
+                        android:text="App Offers"
+                        android:textColor="#fff"
+                        android:textSize="11sp" />
+                </RelativeLayout>
 
 
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/layout_product_message"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/layout_product_prize"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:layout_margin="5dp">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/img_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    app:srcCompat="@drawable/tag" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#a4c639"
-                    android:textStyle="bold"
-                    android:text="Exclusive prize only for you" />
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/img_tag"
+                    android:text="Exclusive price only for you"
+                    android:textColor="#6EC129"
+                    android:textStyle="bold" />
 
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/layout_product_slab_prize"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/layout_product_message"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:layout_below="@+id/layout_product_message">
 
                 <TextView
+                    android:id="@+id/txt_slab_prize"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:text="slab Prize" />
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:text="Slab Prize"
+                    android:textColor="#FFAB00"
+                    android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/txt_slabprize1"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:text="1-5:1,399"
-                    android:background="@drawable/black_border"/>
+                    android:layout_margin="5dp"
+                    android:layout_toRightOf="@+id/txt_slab_prize"
+                    android:background="@drawable/black_border"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-                <TextView
-                    android:id="@+id/txt_slabprize2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:text="5-10:1,299"
-                    android:background="@drawable/black_border"/>
+                    <TextView
+                        android:id="@+id/txt_slab_prize_range"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="1-5:"
+                        android:textColor="#424242"
+                        android:textSize="11sp" />
 
-                <TextView
-                    android:id="@+id/txt_slabprize3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:text="10-15:1259"
-                    android:background="@drawable/black_border"/>
+                    <TextView
+                        android:id="@+id/txt_slab_prize_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="3dp"
+                        android:text="1,399"
+                        android:textColor="#424242"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
 
-            </LinearLayout>
+                </LinearLayout>
+
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/layout_product_slab_prize"
-                android:layout_marginTop="10dp">
+                android:layout_margin="5dp">
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/layout_bundle_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/LightBlue"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/bundle_border"
+                    android:padding="10dp">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/img_bundle_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        app:srcCompat="@drawable/bundle_icon_svg" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/img_bundle_icon"
                         android:text="CREATE BUNDLE" />
-                </LinearLayout>
+                </RelativeLayout>
 
-                <LinearLayout
+                <RelativeLayout
+                    android:id="@+id/layout_add_item"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@+id/layout_bundle_view">
+                    android:layout_toRightOf="@+id/layout_bundle_view"
+                    android:background="@drawable/bundle_border"
+                    android:padding="1dp">
 
-                    <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-                        android:layout_width="100dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/black_border"
-                        card_view:backGroundColor="@color/white"
-                        card_view:textColor="@color/LightBlue">
+                    <TextView
+                        android:id="@+id/txt_minus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="10dp"
+                        android:text="-"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp" />
 
-                    </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+                    <EditText
+                        android:id="@+id/tv_quantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="5dp"
+                        android:layout_toRightOf="@+id/txt_minus"
+                        android:background="@android:color/transparent"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:text="0"
+                        android:textColor="@android:color/black"
+                        android:textSize="12sp" />
 
-                </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_plus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="10dp"
+                        android:layout_toRightOf="@+id/tv_quantity"
+                        android:text="+"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@+id/layout_add_item"
+                    android:padding="1dp">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        app:srcCompat="@drawable/addtocart" />
+
+                </RelativeLayout>
+
 
             </RelativeLayout>
 

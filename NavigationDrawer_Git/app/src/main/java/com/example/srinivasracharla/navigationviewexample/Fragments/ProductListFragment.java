@@ -2,6 +2,7 @@ package com.example.srinivasracharla.navigationviewexample.Fragments;
 
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -32,6 +33,8 @@ public class ProductListFragment extends Fragment {
     List<Integer> brandsList;
     Context mContext;
     EditText searchEditText;
+
+    private static final int VERTICAL_ITEM_SPACE = 30;
 
     public ProductListFragment() {
         // Required empty public constructor
@@ -87,7 +90,10 @@ public class ProductListFragment extends Fragment {
         productListAdapter = new ProductListAdapter(mContext, productDataList);
         RecyclerView.LayoutManager layoutManager_products = new LinearLayoutManager(mContext.getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView_products.setLayoutManager(layoutManager_products);
+        recyclerView_products.addItemDecoration(new VerticalSpaceItemDecoration(VERTICAL_ITEM_SPACE));
         recyclerView_products.setAdapter(productListAdapter);
+        //add ItemDecoration
+
 
 
     }
@@ -102,5 +108,26 @@ public class ProductListFragment extends Fragment {
         productData = new ProductData("SAMSUNG GALAXY NOTE 8", "64GB", "BLACK", "AED 1,599", "AED 1,399", "(1459 - VAT Incl)", "Exclusive price only for you", 1399, 1299, 1259);
         productDataList.add(productData);
         productListAdapter.notifyDataSetChanged();
+    }
+}
+
+class VerticalSpaceItemDecoration extends RecyclerView.ItemDecoration {
+
+    private final int verticalSpaceHeight;
+
+    public VerticalSpaceItemDecoration(int verticalSpaceHeight) {
+        this.verticalSpaceHeight = verticalSpaceHeight;
+    }
+
+    @Override
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
+                               RecyclerView.State state) {
+        //outRect.bottom = verticalSpaceHeight;
+        if(parent.getChildAdapterPosition(view)==0){
+            outRect.top=verticalSpaceHeight;
+        }
+        if (parent.getChildAdapterPosition(view) != parent.getAdapter().getItemCount() - 1) {
+            outRect.bottom = verticalSpaceHeight;
+        }
     }
 }
