@@ -37,7 +37,6 @@ public class BrandsAdapter extends RecyclerView.Adapter<BrandsAdapter.BrandViewH
     @Override
     public BrandViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.brand_view, parent, false);
-        Log.d("srinivas", "onCreateViewHolder() is called");
         return new BrandsAdapter.BrandViewHolder(itemView);
     }
 

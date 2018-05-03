@@ -28,9 +28,41 @@
     <dimen name="ic_album_overflow_margin_top">10dp</dimen>
 
 
-    <!---  handset dimeniosns-->
+    <!---  handset dimensions-->
 
+
+    <!-- Edit Text -->
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="drawble_padding_8dp">8dp</dimen>
+    <dimen name="search_edit_text_size">14sp</dimen>
+
+    <!-- hand Set Card view  -->
     <dimen name="handset_card_margin">10dp</dimen>
     <dimen name="handset_card_radius">15dp</dimen>
+    <dimen name="handset_card_elevation">3dp</dimen>
+
+    <dimen name="handset_title_margin_left">90dp</dimen>
+    <dimen name="handset_title_margin_top">5dp</dimen>
+    <dimen name="handset_title_size">16sp</dimen>
+
+    <dimen name="handset_available_margin_top">10dp</dimen>
+    <dimen name="handset_available_size">11sp</dimen>
+
+    <dimen name="handset_no_of_models_margin_top">5dp</dimen>
+    <dimen name="handset_no_of_models_margin_bottom">10dp</dimen>
+    <dimen name="handset_no_of_models_text_size">13sp</dimen>
+
+    <dimen name="handset_brand_img_width">56dp</dimen>
+    <dimen name="handset_brand_img_height">56dp</dimen>
+    <dimen name="handset_brand_img_margin_left">30dp</dimen>
+    <dimen name="handset_brand_img_elevation">5dp</dimen>
+    <dimen name="handset_brand_img_border_width">0dp</dimen>
+
+    <dimen name="brand_img_width">60dp</dimen>
+    <dimen name="brand_img_height">60dp</dimen>
+
+    <dimen name="brand_img_elevation">0dp</dimen>
+    <dimen name="brand_img_border_width">0dp</dimen>
+
 
 </resources>

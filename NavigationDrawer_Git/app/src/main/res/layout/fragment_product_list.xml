@@ -1,64 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/hint_color"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:elevation="3dp">
+        android:layout_height="match_parent"
+        android:background="@color/hint_color"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <RelativeLayout
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:layout_gravity="center"
+            android:elevation="@dimen/handset_card_elevation">
 
-            <EditText
-                android:id="@+id/editTextSearch"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:background="@drawable/rounded_edittext"
-                android:backgroundTint="@color/light_gray"
-                android:drawableLeft="@drawable/ic_search"
-                android:hint="@string/enter_search_term"
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:maxLines="1"
-                android:padding="8dp"
-                android:textColorHint="@color/dark_gray"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_constraintLeft_creator="1"
-                tools:layout_constraintRight_creator="1"
-                tools:layout_constraintTop_creator="1" />
+                android:layout_height="wrap_content">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_view_brands"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/editTextSearch"
-                android:clipToPadding="false"
-                android:scrollbars="horizontal" />
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                <EditText
+                    android:id="@+id/editTextSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_16dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:backgroundTint="#ECF3F3"
+                    android:drawableLeft="@drawable/searchicon"
+                    android:drawablePadding="@dimen/drawble_padding_8dp"
+                    android:hint="@string/enter_search_term"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="@dimen/drawble_padding_8dp"
+                    android:textColorHint="#8E9392"
+                    android:textSize="@dimen/search_edit_text_size"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_constraintLeft_creator="1"
+                    tools:layout_constraintRight_creator="1"
+                    tools:layout_constraintTop_creator="1" />
 
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_products"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/card_view"
-        android:clipToPadding="false"
-        android:scrollbars="vertical" />
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view_brands"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/editTextSearch"
+                    android:clipToPadding="false"
+                    android:scrollbars="horizontal" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
 
 
-</RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_products"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_view"
+            android:clipToPadding="false"
+            android:scrollbars="vertical" />
+
+
+    </RelativeLayout>
+</ScrollView>

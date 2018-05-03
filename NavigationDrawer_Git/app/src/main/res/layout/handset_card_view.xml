@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/handset_card_margin"
-            android:elevation="3dp"
+            android:elevation="@dimen/handset_card_elevation"
             card_view:cardCornerRadius="@dimen/handset_card_radius"
             card_view:cardUseCompatPadding="true">
 
@@ -30,68 +30,62 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="90dp"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginLeft="@dimen/handset_title_margin_left"
+                    android:layout_marginTop="@dimen/handset_title_margin_top">
 
                     <TextView
                         android:id="@+id/txt_handsetitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/handset_title_size" />
 
                     <TextView
                         android:id="@+id/txt_Available"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txt_handsetitle"
-                        android:layout_marginTop="10dp"
-                        android:text="AVAILABLE"
+                        android:layout_marginTop="@dimen/handset_available_margin_top"
                         android:textColor="@color/white"
-                        android:textSize="11sp" />
+                        android:textSize="@dimen/handset_available_size" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txt_Available"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="10dp"
-                        >
+                        android:layout_marginBottom="@dimen/handset_no_of_models_margin_bottom"
+                        android:layout_marginTop="@dimen/handset_no_of_models_margin_top">
 
                         <TextView
                             android:id="@+id/txt_no_of_models"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="75"
                             android:textColor="@color/white"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/handset_no_of_models_text_size" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
 
-                            android:text="Models  * "
+                            android:text="Models ."
                             android:textColor="@color/white"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/handset_no_of_models_text_size" />
 
                         <TextView
                             android:id="@+id/txt_no_of_qty"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
-                            android:text="10,40000"
                             android:textColor="@color/white"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/handset_no_of_models_text_size" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-
                             android:text="QTY"
                             android:textColor="@color/white"
-                            android:textSize="13sp" />
+                            android:textSize="@dimen/handset_no_of_models_text_size" />
 
                     </LinearLayout>
 
@@ -102,14 +96,14 @@
         </android.support.v7.widget.CardView>
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="0dp"
-            android:elevation="5dp"
+            android:id="@+id/img_handset_model"
+            android:layout_width="@dimen/handset_brand_img_width"
+            android:layout_height="@dimen/handset_brand_img_height"
+            android:layout_marginLeft="@dimen/handset_brand_img_margin_left"
+            android:elevation="@dimen/handset_brand_img_elevation"
             android:src="@drawable/profile"
-            app:civ_border_color="#fff"
-            app:civ_border_width="2dp" />
+            app:civ_border_color="@color/white"
+            app:civ_border_width="@dimen/handset_brand_img_border_width" />
+
     </RelativeLayout>
 </LinearLayout>

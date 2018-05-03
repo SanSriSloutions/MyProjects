@@ -61,19 +61,6 @@ public class ProductListFragment extends Fragment {
         prepareBrandsData();
     }
 
-    private void prepareBrandsData() {
-
-        int images[] = {R.drawable.profile, R.drawable.profile, R.drawable.profile, R.drawable.profile, R.drawable.profile};
-        brandsList.add(R.drawable.profile);
-        brandsList.add(R.drawable.profile);
-        brandsList.add(R.drawable.profile);
-        brandsList.add(R.drawable.profile);
-        brandsList.add(R.drawable.profile);
-        brandsList.add(R.drawable.profile);
-        brandsAdapter.notifyDataSetChanged();
-    }
-
-
     private void initializeViews() {
         searchEditText = getView().findViewById(R.id.editTextSearch);
         //brands
@@ -88,15 +75,30 @@ public class ProductListFragment extends Fragment {
         recyclerView_products = getView().findViewById(R.id.recycler_view_products);
         productDataList = new ArrayList<>();
         productListAdapter = new ProductListAdapter(mContext, productDataList);
-        RecyclerView.LayoutManager layoutManager_products = new LinearLayoutManager(mContext.getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        RecyclerView.LayoutManager layoutManager_products = new LinearLayoutManager(mContext.getApplicationContext(), LinearLayoutManager.VERTICAL, false) {
+            @Override
+            public boolean canScrollVertically() {
+
+                return false;
+            }
+        };
         recyclerView_products.setLayoutManager(layoutManager_products);
         recyclerView_products.addItemDecoration(new VerticalSpaceItemDecoration(VERTICAL_ITEM_SPACE));
         recyclerView_products.setAdapter(productListAdapter);
-        //add ItemDecoration
-
-
-
     }
+
+    private void prepareBrandsData() {
+        brandsList.add(R.drawable.ic_launcher);
+        brandsList.add(R.drawable.ic_launcher);
+        brandsList.add(R.drawable.ic_launcher);
+        brandsList.add(R.drawable.ic_launcher);
+        brandsList.add(R.drawable.ic_launcher);
+        brandsList.add(R.drawable.ic_launcher);
+        brandsList.add(R.drawable.ic_launcher);
+        brandsList.add(R.drawable.ic_launcher);
+        brandsAdapter.notifyDataSetChanged();
+    }
+
 
     private void prepareProductData() {
         ProductData productData = new ProductData("SAMSUNG GALAXY NOTE 8", "64GB", "BLACK", "AED 1,599", "AED 1,399", "(1459 - VAT Incl)", "Exclusive price only for you", 1399, 1299, 1259);
@@ -109,6 +111,7 @@ public class ProductListFragment extends Fragment {
         productDataList.add(productData);
         productListAdapter.notifyDataSetChanged();
     }
+
 }
 
 class VerticalSpaceItemDecoration extends RecyclerView.ItemDecoration {
@@ -123,8 +126,8 @@ class VerticalSpaceItemDecoration extends RecyclerView.ItemDecoration {
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
                                RecyclerView.State state) {
         //outRect.bottom = verticalSpaceHeight;
-        if(parent.getChildAdapterPosition(view)==0){
-            outRect.top=verticalSpaceHeight;
+        if (parent.getChildAdapterPosition(view) == 0) {
+            outRect.top = verticalSpaceHeight;
         }
         if (parent.getChildAdapterPosition(view) != parent.getAdapter().getItemCount() - 1) {
             outRect.bottom = verticalSpaceHeight;

@@ -7,10 +7,9 @@
 
     <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_image"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:elevation="0dp"
-        android:src="@drawable/profile"
+        android:layout_width="@dimen/brand_img_width"
+        android:layout_height="@dimen/brand_img_height"
+        android:elevation="@dimen/brand_img_elevation"
         app:civ_border_color="@color/primaryLightColor"
-        app:civ_border_width="1dp" />
+        app:civ_border_width="@dimen/brand_img_border_width" />
 </LinearLayout>

@@ -66,35 +66,17 @@ public class HandSetFragment extends Fragment {
         prepareHandSetData();
     }
 
-
-    private GradientDrawable prePareGradientColor(int startColor, int endColor) {
-        GradientDrawable gradientDrawable = new GradientDrawable(
-                GradientDrawable.Orientation.LEFT_RIGHT,
-                new int[]{startColor, endColor});
-
-        return gradientDrawable;
-    }
-
-    private void prepareHandSetData() {
-
-        HandSets handSet = new HandSets("Four Mobiles", 75, 1000, prePareGradientColor(0xffFFC382, 0xffF8809C));
-        handSetsList.add(handSet);
-        handSet = new HandSets("Samsung", 75, 1000, prePareGradientColor(0xffCDD5EB, 0xff90A2FC));
-        handSetsList.add(handSet);
-        handSet = new HandSets("Oppo", 75, 1000, prePareGradientColor(0xffCCECCE, 0xff8FE57C));
-        handSetsList.add(handSet);
-        handSet = new HandSets("Apple", 75, 1000, prePareGradientColor(0xffCAE1F2, 0xff81B3E7));
-        handSetsList.add(handSet);
-        handsetAdapter.notifyDataSetChanged();
-    }
-
-
     private void initializeViews() {
         searchEditText = getView().findViewById(R.id.editTextSearch);
         handSetsList = new ArrayList<>();
         handsetAdapter = new HandsetAdapter(mContext, handSetsList);
         recyclerView = getView().findViewById(R.id.recycler_view);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mContext.getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mContext.getApplicationContext(), LinearLayoutManager.VERTICAL, false) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(handsetAdapter);
 
@@ -171,6 +153,40 @@ public class HandSetFragment extends Fragment {
         }
         //calling a method of the adapter class and passing the filtered list
         handsetAdapter.filterList(filterHandsets);
+    }
+
+
+    private void prepareHandSetData() {
+        HandSets handSet = new HandSets(R.drawable.ic_launcher, "Lenovo", true, 75, 1000, prePareGradientColor(0xffFFC382, 0xffF8809C));
+        handSetsList.add(handSet);
+        handSet = new HandSets(R.drawable.ic_launcher, "Samsung", true, 75, 1000, prePareGradientColor(0xffCDD5EB, 0xff90A2FC));
+        handSetsList.add(handSet);
+        handSet = new HandSets(R.drawable.ic_launcher, "Oppo", true, 75, 1000, prePareGradientColor(0xffCCECCE, 0xff8FE57C));
+        handSetsList.add(handSet);
+        handSet = new HandSets(R.drawable.ic_launcher, "Apple", true, 75, 1000, prePareGradientColor(0xffCAE1F2, 0xff81B3E7));
+        handSetsList.add(handSet);
+        handSet = new HandSets(R.drawable.ic_launcher, "Lenovo", true, 75, 1000, prePareGradientColor(0xffFFC382, 0xffF8809C));
+        handSetsList.add(handSet);
+        handSet = new HandSets(R.drawable.ic_launcher, "Samsung", true, 75, 1000, prePareGradientColor(0xffCDD5EB, 0xff90A2FC));
+        handSetsList.add(handSet);
+        handSet = new HandSets(R.drawable.ic_launcher, "Oppo", true, 75, 1000, prePareGradientColor(0xffCCECCE, 0xff8FE57C));
+        handSetsList.add(handSet);
+        handSet = new HandSets(R.drawable.ic_launcher, "Apple", true, 75, 1000, prePareGradientColor(0xffCAE1F2, 0xff81B3E7));
+        handSetsList.add(handSet);
+        handsetAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * @param startColor
+     * @param endColor
+     * @return create gradient drawable based on startColor, endColor
+     */
+    private GradientDrawable prePareGradientColor(int startColor, int endColor) {
+        GradientDrawable gradientDrawable = new GradientDrawable(
+                GradientDrawable.Orientation.LEFT_RIGHT,
+                new int[]{startColor, endColor});
+
+        return gradientDrawable;
     }
 
 

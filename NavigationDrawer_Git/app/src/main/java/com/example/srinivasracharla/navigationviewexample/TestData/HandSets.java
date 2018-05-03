@@ -1,20 +1,45 @@
 package com.example.srinivasracharla.navigationviewexample.TestData;
 
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HandSets {
+
+    public int getHandsetViewId() {
+        return handsetViewId;
+    }
+
+    public void setHandsetViewId(int handsetViewId) {
+        this.handsetViewId = handsetViewId;
+    }
+
+    int handsetViewId;
     String name;
+    boolean available;
     int noOfModels;
     long noOf_Qnty;
     GradientDrawable colorCode;
 
 
-    public HandSets(String name, int noOfModels, int noOf_Qnty, GradientDrawable colorCode) {
+    public HandSets(int handsetViewId, String name, boolean available, int noOfModels, int noOf_Qnty, GradientDrawable colorCode) {
+        this.handsetViewId = handsetViewId;
         this.name = name;
+        this.available = available;
         this.noOfModels = noOfModels;
         this.noOf_Qnty = noOf_Qnty;
         this.colorCode = colorCode;
 
+    }
+
+
+    public Boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
     public GradientDrawable getColorCode() {
